@@ -86,7 +86,7 @@ func (config *ProxyCommandConfig) proxyStepLogic(inputFileFullPath string) (stri
 func main() {
 	commandPath := common.Getenv("COMMAND_PATH", "bin/ffmpeg")
 	outputFormat := common.Getenv("OUTPUT_FORMAT", ".mp4")
-	targetWidth := common.Getenv("OUTPUT_WIDTH", "240")
+	targetWidth := common.Getenv("OUTPUT_WIDTH", "740")
 	outputFolder := os.Getenv("OUTPUT_FOLDER")
 	if len(outputFolder) == 0 {
 		log.Fatal("OUTPUT_FOLDER not specified")

@@ -34,7 +34,7 @@ import (
 const (
 	CONTENT_SUMMARY_STEP_MODEL = "creative-flash"
 	maxRetries                 = 5
-	CHUNK_LENGTH_SEC           = 600
+	CHUNK_LENGTH_SEC           = 300
 )
 
 type ContentSummaryConfigAPI interface {

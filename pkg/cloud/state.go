@@ -64,7 +64,7 @@ func NewCloudServiceClients(ctx context.Context, config *Config) (cloud *Service
 	// Create a new Google Cloud Vertex AI client.
 	gc, err := genai.NewClient(ctx, &genai.ClientConfig{
 		Project:  config.Application.GoogleProjectId,
-		Location: config.Application.GoogleLocation,
+		Location: "global",
 		Backend:  genai.BackendVertexAI,
 	})
 	if err != nil {
