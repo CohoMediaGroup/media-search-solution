@@ -326,7 +326,11 @@ func doSummaryGeneration(config *common.GenaiStepConfig, summaryConfig ContentSu
 			return normalizedOutput, nil
 		}
 		stepErr = err
-		log.Printf("Content summary validation failed on attempt %d: %v", i+1, stepErr)
+		if summaryConfig.isChunk() {
+			log.Printf("Content summary validation failed on attempt %d for chunk starting at %ds: %v", i+1, summaryConfig.getStartOffsetSec(), stepErr)
+		} else {
+			log.Printf("Content summary validation failed on attempt %d: %v", i+1, stepErr)
+		}
 	}
 	return "", fmt.Errorf("content summary generation and validation failed after %d attempts: %w", maxRetries, stepErr)
 }
