@@ -24,7 +24,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-transport-h
     curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > /etc/apt/trusted.gpg.d/bazel.gpg && \
     echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
     apt-get update && \
-    apt-get install -y bazel && \
+    apt-get install -y bazel-7.6.1 && \
+    ln -sf /usr/bin/bazel-7.6.1 /usr/bin/bazel && \
     # Clean up apt lists to reduce image size
     rm -rf /var/lib/apt/lists/*
 
